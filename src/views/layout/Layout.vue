@@ -1,25 +1,32 @@
 <template>
-	<div class="app-wrapper" :class="classObj">
+	<div class="app-wrapper">
 		<sidebar class="sidebar-container">
 			<side-bar></side-bar>
 		</sidebar>
 		<div class="main-container">
 		  <navbar></navbar>
-		  <app-main></app-main>
+			<app-main></app-main>
 		</div>
 	</div>
 </template>
 
 <script>
-	import SideBar from './components/Sidebar/index.vue';
-	import Navbar from './components/Navbar.vue';
+import { Navbar, Sidebar, AppMain } from './components'
 	
 	export default{
-		components:{SideBar,Navbar}
+		components:{
+			Navbar,
+			Sidebar,
+			AppMain
+		}
 	}
 </script>
 
 <style>
+	*{
+		padding: 0px;
+		margin: 0px;
+	}
 	.sidebar-container{
 		transition: width .28s;
 		width: 180px !important;
@@ -32,4 +39,9 @@
 		z-index: 1001;
 		overflow: hidden;
 	}
+	.main-container{
+		min-height: 100%;
+		transition: margin-left .28s;
+		margin-left: 180px;
+	}   
 </style>

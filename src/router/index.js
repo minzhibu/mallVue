@@ -10,6 +10,18 @@ const routes = [
     name: 'Home',
     component: Layout,
   },
+	{
+		path: '/pms',
+		name: 'pms',
+		component: Layout,
+		children:[
+			{
+				path: 'productCate',
+				name: 'productCate',
+				component: () => import('@/views/pms/productCat/index'),
+			}
+		]
+	}
 ]
 
 const router = new VueRouter({

@@ -7,13 +7,11 @@
 			    <span  slot="title">{{item.title}}</span>
 			  </template>
 				<template v-for="(child,j) in item.child">
-					<el-menu-item class="item-background" :index="i+'-'+j">
+					<el-menu-item class="item-background" :index="i+'-'+j" @click="jump(i,j)">
 						<svg-icon :icon-class="child.icon"></svg-icon>
 						<span style="height: 50px;width: 100%;">{{child.title}}</span>
 					</el-menu-item>
 				</template>
-				
-				
 			</el-submenu>
 		</template>
 		
@@ -63,6 +61,12 @@
 					}
 				],
 				product: "product"
+			}
+		},
+		methods: {
+			jump(i,j){
+				let name = this.routers[i]['child'][j].name;
+				this.$router.push({name: name});
 			}
 		}
 	}
