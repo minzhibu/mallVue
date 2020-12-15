@@ -31,36 +31,37 @@
 						child: [{
 							"title":"商品列表",
 							"name":"product",
-							"icon":"product",
+							"icon":"product-list",
 							"hidden":0,
 						},
 						{
 							"title":"添加商品",
 							"name":"addProduct",
-							"icon":"product",
+							"icon":"product-add",
 							"hidden":0,
 						},
 						{
 							"title":"商品分类",
 							"name":"productCate",
-							"icon":"product",
+							"icon":"product-cate",
 							"hidden":0,
 						},
 						{
 							"title":"商品类型",
 							"name":"productAttr",
-							"icon":"product",
+							"icon":"product-attr",
 							"hidden":0,
 						},
 						{
 							"title":"品牌管理",
 							"name":"brand",
-							"icon":"product",
+							"icon":"product-brand",
 							"hidden":0,
 						}]
 					}
 				],
-				product: "product"
+				product: "product",
+				
 			}
 		},
 		methods: {
