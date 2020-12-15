@@ -3,14 +3,19 @@
 		<sidebar class="sidebar-container">
 			<side-bar></side-bar>
 		</sidebar>
+		<div class="main-container">
+		  <navbar></navbar>
+		  <app-main></app-main>
+		</div>
 	</div>
 </template>
 
 <script>
 	import SideBar from './components/Sidebar/index.vue';
+	import Navbar from './components/Navbar.vue';
 	
 	export default{
-		components:{SideBar}
+		components:{SideBar,Navbar}
 	}
 </script>
 
