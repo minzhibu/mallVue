@@ -5,7 +5,11 @@ import 'element-ui/lib/theme-chalk/index.css'
 import router from './router'
 
 import '@/icons' // icon
+import axios from 'axios'
 
+Vue.config.productionTip = false
+Vue.prototype.$axios = axios;
+axios.defaults.baseURL = '/api'
 Vue.use(ElementUI);
 
 new Vue({
