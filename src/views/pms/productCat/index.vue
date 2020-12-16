@@ -12,7 +12,7 @@
 		</el-card>
 		<div class="table-container">
 			<el-table
-				:data="productCate"
+				:data="pageObj.list"
 				border
 				style="width: 100%">
 				<el-table-column
@@ -105,6 +105,19 @@
 				</el-table-column>
 			</el-table>
 		</div>
+		<div
+			style="margin-top: 20px; float: right;">
+			<el-pagination
+				@size-change="updateSize"
+				@current-change="updatePage"
+			  background
+			  layout="sizes,total,slot,prev, pager, next, jumper, ->"
+				:page-sizes="[5,10,15]"
+			  :total="pageObj.total"
+				:pager-count="5"
+				:page-size="size">
+			</el-pagination>
+		</div>
 	</div>
 </template>
 
@@ -113,7 +126,9 @@
 	export default{
 		data(){
 			return {
-				productCate: []
+				pageObj: {},
+				size: 5,
+				page: 1,
 			}
 		},
 		methods: {
@@ -132,21 +147,30 @@
 				console.log("转移商品")
 			},
 			editProductCate(productCate){
-				console.log(productCate);
+				console.log(productCate)
 			},
 			delteProductCate(productCate){
-				console.log(productCate);
+				console.log(productCate)
+			},
+			updateSize(val){
+				this.size = val
+				this.findList(this.page,this.size)
+			},
+			updatePage(val){
+				this.page = val
+				this.findList(this.page,this.size);
 			},
 			//分页查询
 			findList(page,size){
 				selectList(0,page,size).then(response => {
-					this.productCate = response.data.data.list;
+					console.log(response);
+					this.pageObj = response.data.data;
 					console.log(response.data.data.list);
 				})
 			}
 		},
 		created(){
-			this.findList(1,5);
+			this.findList(1,this.size);
 		}
 	}
 </script>
